@@ -1,2 +1,2 @@
 # Parser
-## application for parsing data from allegro.pl
+## application to parsing data from allegro.pl to *.csv 
