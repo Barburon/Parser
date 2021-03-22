@@ -1,7 +1,7 @@
 package main.model;
 
 public class Article {
-
+    private Integer id;
     private String category;
     private String name;
     private String oldPrice;
@@ -10,8 +10,8 @@ public class Article {
     private String deals;
     private String url;
 
-    public Article(String category, String name, String oldPrice, String newPrice, String discount, String deals, String url) {
-
+    public Article(Integer id, String category, String name, String oldPrice, String newPrice, String discount, String deals, String url) {
+        this.id = id;
         this.category = category;
         this.name = name;
         this.oldPrice = oldPrice;
@@ -21,7 +21,13 @@ public class Article {
         this.url = url;
     }
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getCategory() {
         return category;
@@ -82,7 +88,7 @@ public class Article {
     @Override
     public String toString() {
         return "Article{" +
-
+                "id=" + id +
                 ", category='" + category + '\'' +
                 ", name='" + name + '\'' +
                 ", oldPrice='" + oldPrice + '\'' +
