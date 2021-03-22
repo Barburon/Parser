@@ -16,7 +16,7 @@ public class Parser {
 
     public List<Article> toParse(String link, int pages) {
         List<Article> articleList = new ArrayList<>();
-        List<Article> resultList = new ArrayList<>();
+        List<Article> resultList;
         Document document = null;
         do {
             try {
