@@ -4,26 +4,22 @@ import main.model.Article;
 import main.service.Parser;
 import main.util.CsvConverter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-        String electronica = "https://allegro.pl/kategoria/elektronika?string=bargain_zone&bmatch=cl-e2101-d3718-c3682-ele-1-2-0304&price-subsidy=1";
-        String sport = "https://allegro.pl/kategoria/sport-i-turystyka?string=bargain_zone&bmatch=e2101-d3681-c3682-spo-1-2-0319&price-subsidy=1";
-        String supermarket = "https://allegro.pl/kategoria/supermarket?string=bargain_zone&bmatch=e2101-d3681-c3682-sup-1-2-0319&price-subsidy=1";
+        String kids = "https://allegro.pl/kategoria/dziecko?string=bargain_zone&bmatch=e2101-d3681-c3682-bab-1-2-0319";
+        String culture = "https://allegro.pl/kategoria/kultura-i-rozrywka?string=bargain_zone&bmatch=e2101-d3681-c3682-cul-1-2-0319";
+        String art = "https://allegro.pl/kategoria/kolekcje-i-sztuka?string=bargain_zone&bmatch=nbn-e2101-d3681-c3682-col-1-2-0319";
 
         Parser service = new Parser();
-        List<Article> electronicaList = service.toParse(electronica, 2);
-        List<Article> sportList = service.toParse(sport, 2);
-        List<Article> supermarketList = service.toParse(supermarket, 2);
+        List<Article> kidsList = service.toParse(kids, 8);
+        List<Article> cultureList = service.toParse(culture, 8);
+        List<Article> artList = service.toParse(art, 8);
 
-        List<Article> resultList = new ArrayList<>(electronicaList.size() + sportList.size() + supermarketList.size());
-        resultList.addAll(electronicaList);
-        resultList.addAll(sportList);
-        resultList.addAll(supermarketList);
-        resultList.forEach(System.out::println);
-        CsvConverter.writeToCsv(resultList);
+        CsvConverter.writeToCsv(kidsList, "kidsList");
+        CsvConverter.writeToCsv(cultureList, "cultureList");
+        CsvConverter.writeToCsv(artList, "artList");
     }
 }

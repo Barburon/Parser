@@ -1,5 +1,7 @@
 package main.model;
 
+import java.util.Objects;
+
 public class Article {
     private Integer id;
     private String category;
@@ -86,6 +88,19 @@ public class Article {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Article)) return false;
+        Article article = (Article) o;
+        return Objects.equals(getUrl(), article.getUrl());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getUrl());
+    }
+
+    @Override
     public String toString() {
         return "Article{" +
                 "id=" + id +
@@ -98,4 +113,5 @@ public class Article {
                 ", url='" + url + '\'' +
                 '}';
     }
+
 }

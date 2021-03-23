@@ -8,10 +8,10 @@ import java.io.IOException;
 import java.util.List;
 
 public class CsvConverter {
-    public static void writeToCsv(List<Article> list) {
+    public static void writeToCsv(List<Article> list, String fileName) {
         CSVWriter writer = null;
         try {
-            writer = new CSVWriter(new FileWriter("result.csv"));
+            writer = new CSVWriter(new FileWriter(fileName+".csv"));
         } catch (IOException e) {
             e.printStackTrace();
         }
