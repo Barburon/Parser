@@ -25,7 +25,7 @@ public class Parser {
             document = Jsoup.connect(link + "&page"+ pagesLimit++)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (HTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
                     .get();
-            Thread.sleep(500);
+            Thread.sleep(600);
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
