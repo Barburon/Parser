@@ -20,11 +20,13 @@ public class Parser {
         Document document = null;
         do {
             try {
-                for (int i = 1; i < pages; i++) {
+                for (int i = 0; i < pages; i++) {
                     document = Jsoup.connect(link + "&page" + i++)
+                            .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (HTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
                             .get();
+                    Thread.sleep(2000);
                 }
-            } catch (IOException e) {
+            } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
             assert document != null;
