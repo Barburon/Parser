@@ -92,12 +92,12 @@ public class Article {
         if (this == o) return true;
         if (!(o instanceof Article)) return false;
         Article article = (Article) o;
-        return Objects.equals(getUrl(), article.getUrl());
+        return Objects.equals(getName(), article.getName()) && Objects.equals(getUrl(), article.getUrl());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getUrl());
+        return Objects.hash(getName(), getUrl());
     }
 
     @Override
