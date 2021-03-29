@@ -92,12 +92,12 @@ public class Article {
         if (this == o) return true;
         if (!(o instanceof Article)) return false;
         Article article = (Article) o;
-        return Objects.equals(getName(), article.getName()) && Objects.equals(getUrl(), article.getUrl());
+        return Objects.equals(getId(), article.getId()) && Objects.equals(getCategory(), article.getCategory()) && Objects.equals(getName(), article.getName()) && Objects.equals(getOldPrice(), article.getOldPrice()) && Objects.equals(getNewPrice(), article.getNewPrice()) && Objects.equals(getDiscount(), article.getDiscount()) && Objects.equals(getDeals(), article.getDeals()) && Objects.equals(getUrl(), article.getUrl());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getUrl());
+        return Objects.hash(getId(), getCategory(), getName(), getOldPrice(), getNewPrice(), getDiscount(), getDeals(), getUrl());
     }
 
     @Override
