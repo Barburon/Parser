@@ -5,13 +5,13 @@ import main.model.Article;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
+import java.util.Set;
 
 public class CsvConverter {
-    public static void writeToCsv(List<Article> list, String fileName) {
+    public static void writeToCsv(Set<Article> list, String fileName) {
         CSVWriter writer = null;
         try {
-            writer = new CSVWriter(new FileWriter(fileName+".csv"));
+            writer = new CSVWriter(new FileWriter(fileName + ".csv"));
         } catch (IOException e) {
             e.printStackTrace();
         }

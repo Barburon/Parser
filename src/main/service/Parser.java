@@ -7,17 +7,17 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Parser {
 
-    public List<Article> toParse(String link, int numOfPages) {
+    public Set<Article> toParse(String link, int numOfPages) {
         int id = 0;
         int pagesLimit = 1;
-        List<Article> resultList;
-        List<Article> articleList = new ArrayList<>();
+        Set<Article> resultList;
+        Set<Article> articleList = new HashSet<>();
         Document document = null;
         do {
             try {
@@ -44,9 +44,8 @@ public class Parser {
             }
             resultList = articleList.stream()
                     .filter(article -> !article.getOldPrice().isBlank())
-                    .distinct()
                     .limit(100)
-                    .collect(Collectors.toList());
+                    .collect(Collectors.toSet());
         } while (resultList.size() < 100 && pagesLimit < numOfPages);
         resultList.forEach(System.out::println);
         return resultList;

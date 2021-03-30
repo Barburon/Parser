@@ -4,7 +4,7 @@ import main.model.Article;
 import main.service.Parser;
 import main.util.CsvConverter;
 
-import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,9 +14,9 @@ public class Main {
         String art = "https://allegro.pl/kategoria/kolekcje-i-sztuka?string=bargain_zone&bmatch=nbn-e2101-d3681-c3682-col-1-2-0319";
 
         Parser service = new Parser();
-        List<Article> kidsList = service.toParse(kids, 8);
-        List<Article> cultureList = service.toParse(culture, 8);
-        List<Article> artList = service.toParse(art, 8);
+        Set<Article> kidsList = service.toParse(kids, 8);
+        Set<Article> cultureList = service.toParse(culture, 8);
+        Set<Article> artList = service.toParse(art, 8);
 
         CsvConverter.writeToCsv(kidsList, "kidsList");
         CsvConverter.writeToCsv(cultureList, "cultureList");
